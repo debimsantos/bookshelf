@@ -2,6 +2,7 @@ import React from 'react';
 import * as BooksAPI from './BooksAPI'
 import MainPage from './MainPage.js';
 import SearchPage from './SearchPage.js';
+import { Route }  from 'react-router-dom';
 import './App.css'
 
 class BooksApp extends React.Component {
@@ -28,13 +29,21 @@ class BooksApp extends React.Component {
   render() {
     return(
       <div className='app'>
-        <MainPage
+
+        <Route exact path="/" render={() => (
+          <MainPage
           books={this.state.books}
           changeShelf={this.changeShelf}
+          />
+        )}
         />
-        {/*<SearchPage
+
+        <Route path="/search" render={() => (
+          <SearchPage
           changeShelf={this.changeShelf}
-        />*/}
+          />
+        )}
+        />
 
       </div>
       );
