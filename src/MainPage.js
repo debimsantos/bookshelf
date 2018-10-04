@@ -21,7 +21,11 @@ class MainPage extends React.Component {
                         .filter(book => book.shelf === 'currentlyReading')
                         .map(book => (
                         <li key={book.id}>
-                          <Book book={book} />
+                            <Book
+                              book={book}
+                              changeShelf={this.props.changeShelf}
+                              currentShelf="currentlyReading"
+                            />
                         </li>
                       ))
                     }
@@ -37,7 +41,11 @@ class MainPage extends React.Component {
                         .filter(book => book.shelf === 'wantToRead')
                         .map(book =>(
                           <li key={book.id}>
-                            <Book book={book}/>
+                            <Book
+                              book={book}
+                              changeShelf={this.props.changeShelf}
+                              currentShelf="wantToRead"
+                            />
                           </li>
                         ))
                       }
@@ -53,7 +61,11 @@ class MainPage extends React.Component {
                         .filter(book => book.shelf === 'read')
                         .map(book =>(
                           <li key={book.id}>
-                            <Book book={book}/>
+                            <Book
+                              book={book}
+                              changeShelf={this.props.changeShelf}
+                              currentShelf="read"
+                            />
                           </li>
                         ))
                       }

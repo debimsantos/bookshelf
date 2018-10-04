@@ -14,11 +14,16 @@ class BooksApp extends React.Component {
     })
   }
 
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+  }
+
   render() {
     return(
       <div className='app'>
         <MainPage
           books={this.state.books}
+          changeShelf={this.changeShelf}
         />
       </div>
       );
