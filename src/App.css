@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
 }
 body, .app {
-  background: white;
+  background: #dff1fb;
 }
 
 /* main page */
@@ -28,6 +28,10 @@ body, .app {
 
 .bookshelf {
   padding: 0 10px 20px;
+  background-image: url('/img/shelves.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
 }
 
 @media (min-width: 600px) {
