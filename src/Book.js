@@ -1,7 +1,9 @@
 import React from 'react';
 
-class Book extends React.Component {
+export class Book extends React.Component {
     render() {
+        /* Display books with no thumbnail img and
+        handling errors by showing blank page */
         let thumbnailImg = this.props.book.imageLinks ?
         this.props.book.imageLinks.thumbnail : '';
 
@@ -14,6 +16,7 @@ class Book extends React.Component {
                     backgroundImage: `url("${thumbnailImg}"` }}>
                 </div>
                 <div className="book-shelf-changer">
+                    {/* Moving books from one shelf to another */}
                     <select
                         onChange={(event) => this.props.changeShelf(
                             this.props.book, event.target.value

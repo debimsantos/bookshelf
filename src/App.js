@@ -10,6 +10,7 @@ class BooksApp extends React.Component {
     books: []
   }
 
+  /* Get books from external data source */
   updatePage() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
@@ -30,6 +31,7 @@ class BooksApp extends React.Component {
     return(
       <div className='app'>
 
+        {/* Browser Router */}
         <Route exact path="/" render={() => (
           <MainPage
           books={this.state.books}

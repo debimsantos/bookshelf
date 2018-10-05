@@ -14,6 +14,8 @@ class SearchPage extends React.Component {
     this.updateSearchedBooks(query);
   }
 
+  /* This handles error from search - e.g., books
+  without img or author, no match */
   updateSearchedBooks = (query) => {
     if(query) {
       BooksAPI.search(query).then((searchedBooks) => {
@@ -39,6 +41,7 @@ class SearchPage extends React.Component {
                 > Close
                 </Link>
 
+               {/* Display user input on search form */}
                 <div className="search-books-input-wrapper">
                   <input
                     type="text"
@@ -48,6 +51,7 @@ class SearchPage extends React.Component {
                   />
                 </div>
               </div>
+
               <div className="search-books-results">
                 <ol className="books-grid">
                 {this.state.searchedBooks.map(searchedBook => {
