@@ -29,7 +29,7 @@ body, .app {
 .bookshelf {
   padding: 0 10px 20px;
   background-image: url('/img/shelves.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: contain;
   background-position: bottom;
 }
