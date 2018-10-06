@@ -4,10 +4,12 @@ import MainPage from './MainPage.js';
 import SearchPage from './SearchPage.js';
 import { Route }  from 'react-router-dom';
 import './App.css'
+import Shelf from './Shelf';
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    shelves: []
   }
 
   updatePage() {
@@ -16,8 +18,37 @@ class BooksApp extends React.Component {
     })
   }
 
+  initializeBookShelf() {
+
+    let shelves = [];
+    // add shelves in list
+    let shelf1 = new Shelf();
+    shelf1.id = 1;
+    shelf1.title = "Currently Reading";
+    shelf1.shelfName = "currentlyReading";
+    shelf1.books = this.books;
+    shelves.push(shelf1);
+
+    let shelf2 = new Shelf();
+    shelf2.id = 2;
+    shelf2.title = "Want to Read";
+    shelf2.shelfName = "wantToRead";
+    shelf2.books = this.books;
+    shelves.push(shelf2);
+
+    let shelf3 = new Shelf();
+    shelf3.id = 3;
+    shelf3.title = "Read";
+    shelf3.shelfName = "read";
+    shelf3.books = this.books;
+    shelves.push(shelf3);
+
+    this.setState ({shelves: shelves})
+  }
+
   componentDidMount() {
     this.updatePage();
+    this.initializeBookShelf();
   }
 
   changeShelf = (book, shelf) => {
@@ -33,6 +64,7 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={() => (
           <MainPage
           books={this.state.books}
+          bookShelf={this.state.shelves}
           changeShelf={this.changeShelf}
           />
         )}
