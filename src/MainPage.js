@@ -1,6 +1,5 @@
 import React from 'react';
 import BookShelf from './Bookshelf.js';
-import Shelf from './Shelf.js';
 import './index.css'
 import { Link }  from 'react-router-dom';
 
@@ -12,18 +11,13 @@ class MainPage extends React.Component {
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
-
+              {
+                <BookShelf
+                  shelves={this.props.BookShelf}
+                />
+              }
+            {/*
             <div className="list-books-content">
-              { this.props.bookShelf
-                    .map(shelf => (
-                    <li key={shelf.id}>
-                        <Shelf
-                          shelf={shelf}
-                        />
-                    </li>
-                  ))
-                }
-              {/*
               <div className="bookshelf">
                 <h2 className="bookshelf-title">Currently Reading</h2>
                 <div className="bookshelf-books">
@@ -83,9 +77,8 @@ class MainPage extends React.Component {
                   </ol>
                 </div>
               </div>
-              */}
             </div>
-
+            */}
             <div className="open-search">
               <Link to="/search">
                 Add a book
