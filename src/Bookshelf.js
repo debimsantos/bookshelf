@@ -1,6 +1,5 @@
 import React from 'react';
 import Shelf from './Shelf.js';
-import * as BooksAPI from './BooksAPI'
 
 class BookShelf extends React.Component {
   render () {
@@ -41,4 +40,3 @@ class BookShelf extends React.Component {
 };
 
 export default BookShelf;
-

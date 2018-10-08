@@ -4,7 +4,7 @@ import MainPage from './MainPage.js';
 import SearchPage from './SearchPage.js';
 import { Route }  from 'react-router-dom';
 import './App.css'
-import Shelf from './Shelf';
+
 
 class BooksApp extends React.Component {
   state = {
