@@ -4,10 +4,12 @@ import MainPage from './MainPage.js';
 import SearchPage from './SearchPage.js';
 import { Route }  from 'react-router-dom';
 import './App.css'
+import Shelf from './Shelf';
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    // shelves: []
   }
 
   /* Get books from external data source */
@@ -22,9 +24,12 @@ class BooksApp extends React.Component {
   }
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
 
-    this.updatePage();
+    BooksAPI.update(book, shelf)
+    .then(books => {
+      this.updatePage();
+    })
+
   }
 
   render() {
@@ -34,16 +39,16 @@ class BooksApp extends React.Component {
         {/* Browser Router */}
         <Route exact path="/" render={() => (
           <MainPage
-          books={this.state.books}
-          changeShelf={this.changeShelf}
+            books={this.state.books}
+            changeShelf={this.changeShelf}
           />
         )}
         />
 
         <Route path="/search" render={() => (
           <SearchPage
-          changeShelf={this.changeShelf}
-          books={this.state.books}
+            changeShelf={this.changeShelf}
+            books={this.state.books}
           />
         )}
         />
