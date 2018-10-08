@@ -4,24 +4,34 @@ import * as BooksAPI from './BooksAPI'
 
 class BookShelf extends React.Component {
   render () {
-     return (
-      <div className="list-books">
-
-        <div className="list-books-title">
-          <h1>MyReads</h1>
+    return (
+      <div className="list-books-content">
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Currently Reading</h2>
+          <Shelf
+            id={1}
+            books={this.props.books}
+            changeShelf={this.props.changeShelf}
+            shelfName="currentlyReading"
+          />
         </div>
-
-        <div className="list-books-content">
-          { this.props.shelves
-            .map(shelf => (
-              <li key={shelf.id}>
-                <Shelf
-                  books={this.props.books}
-                  shelf={shelf}
-                />
-              </li>
-            ))
-          }
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Want to Read</h2>
+          <Shelf
+            id={2}
+            books={this.props.books}
+            changeShelf={this.props.changeShelf}
+            shelfName="wantToRead"
+          />
+        </div>
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">Read</h2>
+          <Shelf
+            id={3}
+            books={this.props.books}
+            changeShelf={this.props.changeShelf}
+            shelfName="read"
+          />
         </div>
 
       </div>
